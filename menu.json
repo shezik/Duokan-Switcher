@@ -1,0 +1,52 @@
+{
+	"comment001": "Duokan Switcher",
+	"comment002": "It helps you quickly switch between Duokan system and Kindle system.",
+	"comment003": "Author: shezik, NiLuJe",
+	"comment004": "Finished on February 14, 2020",
+	"items": [
+	{
+		"name": "Duokan Switcher",
+		"priority": 1,
+		"items": [
+		{
+			"name": "Switch to Duokan without rebooting",
+			"exitmenu": false,
+			"refresh": false,
+			"status": false,
+			"action": "./bin/dkswitcher.sh",
+			"params": "quickswitch",
+			"internal": "status Switch to Duokan without rebooting"
+		},
+		{
+			"name": "Enable Duokan autostart",
+			"if": "\"/mnt/us/DUOKAN_DISABLE\" -f",
+			"exitmenu": false,
+			"refresh": true,
+			"status": false,
+			"action": "./bin/dkswitcher.sh",
+			"params": "toggle",
+			"internal": "status Enable Duokan autostart"
+		},
+		{
+			"name": "Disable Duokan autostart",
+			"if": "\"/mnt/us/DUOKAN_DISABLE\" -f!",
+			"exitmenu": false,
+			"refresh": true,
+			"status": false,
+			"action": "./bin/dkswitcher.sh",
+			"params": "toggle",
+			"internal": "status Disable Duokan autostart"
+		},
+		{
+			"name": "Restore default and reboot",
+			"exitmenu": false,
+			"refresh": false,
+			"status": false,
+			"action": "./bin/dkswitcher.sh",
+			"params": "switch",
+			"internal": "status Restore autostart state and reboot"
+		}
+		]
+	}
+	]
+}

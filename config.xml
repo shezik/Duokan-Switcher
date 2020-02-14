@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension>
+	<information>
+		<name>Duokan Switcher</name>
+		<version>0.1</version>
+		<author>shezik NiLuJe</author>
+		<id>DKSwitcher</id>
+	</information>
+	<menus>
+		<menu type="json" dynamic="true">menu.json</menu>
+	</menus>
+</extension>

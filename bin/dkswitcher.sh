@@ -230,12 +230,12 @@ toggle()
 	elif [ -f "/etc/init.d/DK_run" ] ; then
 		mntroot rw
 		rm -f /mnt/us/DUOKAN_DISABLE
-		# Both "DUOKAN_DISABLE" and "DUOKAN_NO" works. I prefer the former. :)
+		# Both "DUOKAN_DISABLE" and "DUOKAN_NO" works. I prefer the former one. :)
 		if [ -f "/mnt/us/DUOKAN_NO" ] ; then rm -f /mnt/us/DUOKAN_NO; fi
 		mntroot ro
 		eips_print_bottom_centered "Duokan autostart enabled." 1
 	else
-		eips_print_bottom_centered "Duokan is missing or is a older version. Aborting." 0
+		eips_print_bottom_centered "Duokan is missing or is a deprecated version. Aborting." 0
 		exit 1
 	fi
 }
@@ -245,7 +245,7 @@ switch()
 	if [ -f "/mnt/us/DUOKAN_DISABLE" ] ; then
 		toggle
 	elif !([ -f "/etc/init.d/DK_run" ]) ; then
-		eips_print_bottom_centered "Duokan is missing or is a older version. Aborting." 0
+		eips_print_bottom_centered "Duokan is missing or is a deprecated version. Aborting." 0
 		exit 1
 	fi
 	
@@ -256,11 +256,11 @@ quickswitch()
 {
 	# "DUOKAN_DISABLE" only affects the power-up sequence
 	if !([ -f "/etc/init.d/DK_run" ]) ; then
-		eips_print_bottom_centered "Duokan is missing or is a older version. Aborting." 0
+		eips_print_bottom_centered "Duokan is missing or is a deprecated version. Aborting." 0
 		exit 1
 	fi
 	
-	# When "x" or something gets terminated, scripts inherited from this shell will stop running.
+	# When "x" or some other system processes gets terminated, scripts inherited from this shell will stop running.
 	setsid ./bin/startdk.sh
 }
 
